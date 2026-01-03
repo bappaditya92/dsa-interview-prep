@@ -33,7 +33,7 @@ This repo contains my structured solutions to **DSA problems** and **LeetCode ch
 
 ## 💻 Platforms
 - **LeetCode**
-- - **TakeUFroward**
+- **TakeUFroward**
 - **General DSA Problems**
 - Interview-style coding questions
 
