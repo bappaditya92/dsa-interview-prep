@@ -33,6 +33,7 @@ This repo contains my structured solutions to **DSA problems** and **LeetCode ch
 
 ## 💻 Platforms
 - **LeetCode**
+- **TakeUFroward**
 - **General DSA Problems**
 - Interview-style coding questions
 
@@ -40,8 +41,7 @@ This repo contains my structured solutions to **DSA problems** and **LeetCode ch
 
 ## 🛠 Languages Used
 - JavaScript (Primary)
-- Python (Occasionally)
+- Java (Occasionally)
 
 ---
 
-## 📂 Repository Structure
