@@ -36,6 +36,7 @@ This repo contains my structured solutions to **DSA problems** and **LeetCode ch
 - **TakeUFroward**
 - **General DSA Problems**
 - **Geeks for geeks**
+- **Hackerrank**
 - Interview-style coding questions
 
 ---
