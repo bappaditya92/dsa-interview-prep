@@ -1,7 +1,6 @@
 class SecondLargest {
     public static void main(String[] args) {
         int[] arr = {10, 5, 20, 8, 15};
-
         int largest = Integer.MIN_VALUE;
         int secondLargest = Integer.MIN_VALUE;
 
