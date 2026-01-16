@@ -1,10 +1,15 @@
-const s = "programming";
-const map = new Map();
+import java.util.HashMap;
+import java.util.Map;
 
-for (let ch of s) {
-    map.set(ch, (map.get(ch) || 0) + 1);
-}
-
-for (let [key, value] of map) {
-    console.log(`${key} : ${value}`);
+public class CharFrequencyMap {
+    public static void main(String[] args) {
+        String s = "programming";
+        Map<Character, Integer> map = new HashMap<>();
+        for (char ch : s.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        }
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+    }
 }
