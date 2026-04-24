@@ -8,7 +8,7 @@ class StreamBug {
                 new ArrayList<>(),
                 (acc, item) -> {
                     acc.add(item);
-                    return acc; // BAD (shared mutable state)
+                    return acc; 
                 },
                 (left, right) -> {
                     left.addAll(right);
