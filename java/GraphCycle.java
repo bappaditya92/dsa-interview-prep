@@ -40,6 +40,6 @@ public class GraphCycle {
         g.addEdge(2, 3);
         g.addEdge(3, 1);
 
-        System.out.println("Has Cycle: " + g.hasCycle());
+        System.out.println("Has Cycle...: " + g.hasCycle());
     }
 }
