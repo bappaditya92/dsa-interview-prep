@@ -1,4 +1,4 @@
-public class SecondLargest {
+public class SecondLargestDemo {
 
     public static int findSecondLargest(int[] arr) {
         if (arr.length < 2) return -1;
