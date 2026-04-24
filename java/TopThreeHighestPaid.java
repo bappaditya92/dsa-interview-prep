@@ -22,7 +22,7 @@ class Employee {
     }
 }
 
-public class Top3HighestPaid {
+public class TopThreeHighestPaid {
 
     public static void main(String[] args) {
 
