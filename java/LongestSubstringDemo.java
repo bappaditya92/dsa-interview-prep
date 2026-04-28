@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-public class LongestSubstring {
+public class LongestSubstringDemo {
 
     public static int longestSubstring(String s) {
 
