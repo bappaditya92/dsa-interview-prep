@@ -1,0 +1,32 @@
+class MaxValueBounded {
+    public int maxValue(int n, int index, int maxSum) {
+        int left = 1, right = maxSum;
+
+        while (left < right) {
+            int mid = (left + right + 1) / 2;
+
+            if (valid(n, index, maxSum, mid)) left = mid;
+            else right = mid - 1;
+        }
+        return left;
+    }
+
+    private boolean valid(int n, int index, int maxSum, int val) {
+        long sum = val;
+
+        int leftLen = index;
+        int rightLen = n - index - 1;
+
+        sum += calc(val - 1, leftLen);
+        sum += calc(val - 1, rightLen);
+
+        return sum <= maxSum;
+    }
+
+    private long calc(int peak, int len) {
+        if (peak >= len)
+            return (long)(peak + peak - len + 1) * len / 2;
+        else
+            return (long)(peak + 1) * peak / 2 + (len - peak);
+    }
+}
