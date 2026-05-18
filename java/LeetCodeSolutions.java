@@ -1,14 +1,5 @@
 import java.util.*;
 
-/**
- * ============================================================
- *   LeetCode Solutions in Java — 20 Classic Problems
- * ============================================================
- * Topics covered:
- *   Arrays, Strings, LinkedList, Stack, Queue,
- *   Binary Search, Trees, Graphs, Dynamic Programming, Design
- * ============================================================
- */
 public class LeetCodeSolutions {
 
     // ============================================================
