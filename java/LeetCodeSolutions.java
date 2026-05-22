@@ -367,46 +367,20 @@ public class LeetCodeSolutions {
         return dp[amount] > amount ? -1 : dp[amount];
     }
 
-    // ============================================================
-    // MAIN — Quick smoke tests
-    // ============================================================
     public static void main(String[] args) {
         LeetCodeSolutions sol = new LeetCodeSolutions();
 
-        // Two Sum
         System.out.println("Two Sum:            " + Arrays.toString(sol.twoSum(new int[]{2,7,11,15}, 9)));
-
-        // Max Profit
         System.out.println("Max Profit:         " + sol.maxProfit(new int[]{7,1,5,3,6,4}));
-
-        // Contains Duplicate
         System.out.println("Contains Duplicate: " + sol.containsDuplicate(new int[]{1,2,3,1}));
-
-        // Max Subarray
         System.out.println("Max Subarray:       " + sol.maxSubArray(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
-
-        // Trapping Rain Water
         System.out.println("Trap Water:         " + sol.trap(new int[]{0,1,0,2,1,0,1,3,2,1,2,1}));
-
-        // Valid Parentheses
         System.out.println("Valid Parens:        " + sol.isValid("()[]{}"));
-
-        // Longest Substring
         System.out.println("Longest Substring:  " + sol.lengthOfLongestSubstring("abcabcbb"));
-
-        // Is Anagram
         System.out.println("Is Anagram:         " + sol.isAnagram("anagram", "nagaram"));
-
-        // Is Palindrome
         System.out.println("Is Palindrome:      " + sol.isPalindrome("A man, a plan, a canal: Panama"));
-
-        // Binary Search
         System.out.println("Binary Search:      " + sol.search(new int[]{-1,0,3,5,9,12}, 9));
-
-        // Climb Stairs
         System.out.println("Climb Stairs(5):    " + sol.climbStairs(5));
-
-        // Coin Change
         System.out.println("Coin Change:        " + sol.coinChange(new int[]{1,5,11}, 15));
 
         System.out.println("\nAll tests passed ✓");
