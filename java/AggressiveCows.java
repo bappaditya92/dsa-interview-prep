@@ -1,3 +1,6 @@
+
+import java.util.Arrays;
+
 class AggressiveCows {
     public int maxDistance(int[] stalls, int k) {
         Arrays.sort(stalls);
