@@ -1,35 +1,95 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
-class LRUCache extends LinkedHashMap<Integer, Integer> {
+class Node {
 
-    private int capacity;
+    int key;
+    int value;
+
+    Node prev;
+    Node next;
+
+    Node(int key, int value) {
+        this.key = key;
+        this.value = value;
+    }
+}
+
+public class LRUCache {
+
+    private final int capacity;
+
+    private final Map<Integer, Node> map;
+
+    private final Node head;
+    private final Node tail;
 
     public LRUCache(int capacity) {
-        super(capacity, 0.75f, true); // access order = true
+
         this.capacity = capacity;
+
+        map = new HashMap<>();
+
+        head = new Node(0, 0);
+        tail = new Node(0, 0);
+
+        head.next = tail;
+        tail.prev = head;
     }
 
-    @Override
-    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
-        return size() > capacity;
+    public int get(int key) {
+
+        if(!map.containsKey(key)) {
+            return -1;
+        }
+
+        Node node = map.get(key);
+
+        remove(node);
+
+        insert(node);
+
+        return node.value;
     }
 
-    public int getValue(int key) {
-        return getOrDefault(key, -1);
+    public void put(int key, int value) {
+
+        if(map.containsKey(key)) {
+
+            remove(map.get(key));
+        }
+
+        if(map.size() == capacity) {
+
+            Node lru = tail.prev;
+
+            remove(lru);
+
+            map.remove(lru.key);
+        }
+
+        Node newNode = new Node(key, value);
+
+        insert(newNode);
+
+        map.put(key, newNode);
     }
 
-    public void putValue(int key, int value) {
-        put(key, value);
+    private void remove(Node node) {
+
+        node.prev.next = node.next;
+
+        node.next.prev = node.prev;
     }
 
-    public static void main(String[] args) {
-        LRUCache cache = new LRUCache(2);
+    private void insert(Node node) {
 
-        cache.putValue(1, 10);
-        cache.putValue(2, 20);
-        cache.getValue(1);
-        cache.putValue(3, 30);
+        node.next = head.next;
 
-        System.out.println(cache); // {1=10, 3=30}
+        node.prev = head;
+
+        head.next.prev = node;
+
+        head.next = node;
     }
 }
