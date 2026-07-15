@@ -1,16 +1,6 @@
-import java.util.PriorityQueue;
+import java.util.*;
 
-class ListNode {
-
-    int val;
-    ListNode next;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}
-
-public class MergeKLists {
+class MergeKLists {
 
     public ListNode mergeKLists(ListNode[] lists) {
 
@@ -19,18 +9,18 @@ public class MergeKLists {
                         (a, b) -> a.val - b.val
                 );
 
-        for(ListNode node : lists) {
+        for (ListNode node : lists) {
 
-            if(node != null) {
+            if (node != null) {
                 pq.offer(node);
             }
         }
 
-        ListNode dummy = new ListNode(0);
+        ListNode dummy = new ListNode(-1);
 
         ListNode current = dummy;
 
-        while(!pq.isEmpty()) {
+        while (!pq.isEmpty()) {
 
             ListNode node = pq.poll();
 
@@ -38,7 +28,8 @@ public class MergeKLists {
 
             current = current.next;
 
-            if(node.next != null) {
+            if (node.next != null) {
+
                 pq.offer(node.next);
             }
         }

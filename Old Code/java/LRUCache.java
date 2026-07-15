@@ -1,95 +1,42 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-class Node {
-
-    int key;
-    int value;
-
-    Node prev;
-    Node next;
-
-    Node(int key, int value) {
-        this.key = key;
-        this.value = value;
-    }
-}
-
-public class LRUCache {
+class LRUCache {
 
     private final int capacity;
-
-    private final Map<Integer, Node> map;
-
-    private final Node head;
-    private final Node tail;
+    private final LinkedHashMap<Integer, Integer> map;
 
     public LRUCache(int capacity) {
 
         this.capacity = capacity;
 
-        map = new HashMap<>();
+        this.map = new LinkedHashMap<>(capacity, 0.75f, true) {
 
-        head = new Node(0, 0);
-        tail = new Node(0, 0);
-
-        head.next = tail;
-        tail.prev = head;
+            protected boolean removeEldestEntry(
+                    Map.Entry<Integer, Integer> eldest) {
+                return size() > capacity;
+            }
+        };
     }
 
     public int get(int key) {
-
-        if(!map.containsKey(key)) {
-            return -1;
-        }
-
-        Node node = map.get(key);
-
-        remove(node);
-
-        insert(node);
-
-        return node.value;
+        return map.getOrDefault(key, -1);
     }
 
     public void put(int key, int value) {
-
-        if(map.containsKey(key)) {
-
-            remove(map.get(key));
-        }
-
-        if(map.size() == capacity) {
-
-            Node lru = tail.prev;
-
-            remove(lru);
-
-            map.remove(lru.key);
-        }
-
-        Node newNode = new Node(key, value);
-
-        insert(newNode);
-
-        map.put(key, newNode);
+        map.put(key, value);
     }
 
-    private void remove(Node node) {
+    public static void main(String[] args) {
 
-        node.prev.next = node.next;
+        LRUCache cache = new LRUCache(2);
 
-        node.next.prev = node.prev;
-    }
+        cache.put(1, 10);
+        cache.put(2, 20);
 
-    private void insert(Node node) {
+        System.out.println(cache.get(1));
 
-        node.next = head.next;
+        cache.put(3, 30);
 
-        node.prev = head;
-
-        head.next.prev = node;
-
-        head.next = node;
+        System.out.println(cache.get(2));
     }
 }

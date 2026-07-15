@@ -1,12 +1,16 @@
-class LargestElement {
+public class LargestElement {
     public static void main(String[] args) {
-        int[] arr = {3, 7, 2, 9, 4};
+
+        int[] arr = {4, 8, 2, 15, 1};
+
         int max = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            if (arr[i] > max) {
-                max = arr[i];
+
+        for(int num : arr) {
+            if(num > max) {
+                max = num;
             }
         }
-        System.out.println("Largest element: " + max);
+
+        System.out.println("Largest: " + max);
     }
 }

@@ -1,18 +1,25 @@
-class FindDuplicate {
-    public int findDuplicate(int[] nums) {
-        int left = 1, right = nums.length - 1;
+public class FindDuplicate {
+    public static int findDuplicate(int[] nums) {
+        int slow = nums[0];
+        int fast = nums[0];
 
-        while (left < right) {
-            int mid = (left + right) / 2;
 
-            int count = 0;
-            for (int n : nums) {
-                if (n <= mid) count++;
-            }
+        do {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while (slow != fast);
 
-            if (count > mid) right = mid;
-            else left = mid + 1;
+        slow = nums[0];
+        while (slow != fast) {
+            slow = nums[slow];
+            fast = nums[fast];
         }
-        return left;
+
+        return slow;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 3, 4, 2, 2};
+        System.out.println("Duplicate Number: " + findDuplicate(nums));
     }
 }
